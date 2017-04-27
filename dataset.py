@@ -101,12 +101,16 @@ def sample_sets(datasets, perc, replace=False, rndState=None):
 
 def data_2_freqs(dataset):
     """
+    Description
+    -----------
     This function returns the frequency of each value in a feature.
     Here, a feature is a column from the dataset.
     For example, consider the first column being feature, say var1.
     If var1 is binary, that is assuming only 0 or 1 values, then the frequency counts how many times each value was assumed.
     For instance, {'var': 108, 'freqs': [12206, 552]} means var108 assumed value 0 exactly 12206 times and value 1 exactly 552 times.
     It is obvious that the sum of these frequencies should be the total instance available in the dataset.
+    The return variable "features" tells how many values each feature has.
+    For instance, if all features (columns) are binary in a dataset with 3 features, variable "features" would be [2 2 2].
     """
     freqs = []
     features = []
