@@ -32,6 +32,7 @@ import math
 import logging
 
 import sklearn.mixture
+import sklearn.cluster
 
 from algo.dataslice import DataSlice
 
@@ -284,7 +285,22 @@ def cluster_rows(data,
         pred_start_t = perf_counter()
         clustering = dpgmm_c.predict(sliced_data)
         pred_end_t = perf_counter()
+    elif cluster_method == 'KMEANS':
+        # creating the cluster from sklearn
+        kmeans_c = sklearn.cluster.KMeans(n_clusters=n_clusters,
+                                        random_state=rand_gen,
+                                        max_iter=n_iters,
+                                        n_init=n_restarts)
+        # fitting to training set
+        fit_start_t = perf_counter()
+        kmeans_c.fit(sliced_data)
+        fit_end_t = perf_counter()
 
+        #
+        # getting the cluster assignment
+        pred_start_t = perf_counter()
+        clustering = kmeans_c.predict(sliced_data)
+        pred_end_t = perf_counter()
     elif cluster_method == 'HOEM':
         raise NotImplementedError('Hard Online EM is not implemented yet')
     else:
