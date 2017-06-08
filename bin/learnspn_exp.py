@@ -40,6 +40,15 @@ parser.add_argument('-c', '--cluster-method', type=str, nargs='?',
                     help='Cluster method to apply on rows' +
                     ' ["GMM"|"DPGMM"|"HOEM"]')
 
+parser.add_argument('--chop-method', type=str, nargs='?',
+                    default='gtest',
+                    help='Chop method to apply on columns' +
+                    ' ["gtest" - G-Test|"mi" - Mutual Information]')
+
+parser.add_argument('--mi-factor', type=float, nargs='+',
+                    default=[0.05],
+                    help='The threshold for Mutual Information Test on columns')
+
 parser.add_argument('--seed', type=int, nargs='?',
                     default=1337,
                     help='Seed for the random generator')
@@ -104,6 +113,7 @@ logging.info("Starting with arguments:\n%s", args)
 alphas = args.alpha
 min_inst_slices = args.min_inst_slice
 g_factors = args.g_factor
+mi_factors = args.mi_factor
 cluster_penalties = args.cluster_penalty
 
 cltree_leaves = args.clt_leaves
@@ -167,17 +177,29 @@ with open(out_log_path, 'w') as out_log:
     out_log.write(preamble)
     out_log.flush()
     #
+
+    if args.chop_method == "mi" and len(mi_factors) < 1:
+        raise ValueError("Chop method is MI but no mi factor are provided.")
+
+
+    is_mi_factor = False
+    factors = g_factors
+    if len(mi_factors) > 0:
+        is_mi_factor = True
+        factors = g_factors
     # looping over all parameters combinations
-    for g_factor in g_factors:
+    for factor in factors:
         for cluster_penalty in cluster_penalties:
             for min_inst_slice in min_inst_slices:
 
                 #
                 # Creating the structure learner
-                learner = LearnSPN(g_factor=g_factor,
+                learner = LearnSPN(g_factor=factor,
+                                   mi_factor=factor,
                                    min_instances_slice=min_inst_slice,
                                    # alpha=alpha,
                                    row_cluster_method=args.cluster_method,
+                                   column_chop_method=args.chop_method,
                                    cluster_penalty=cluster_penalty,
                                    n_cluster_splits=args.n_row_clusters,
                                    n_iters=args.n_iters,
@@ -185,7 +207,6 @@ with open(out_log_path, 'w') as out_log:
                                    sklearn_args=sklearn_args,
                                    cltree_leaves=cltree_leaves,
                                    rand_gen=numpy_rand_gen)
-
                 learn_start_t = perf_counter()
 
                 #
@@ -251,7 +272,7 @@ with open(out_log_path, 'w') as out_log:
                         best_valid_avg_ll = valid_avg_ll
                         best_state['alpha'] = alpha
                         best_state['min-inst-slice'] = min_inst_slice
-                        best_state['g-factor'] = g_factor
+                        best_state['factor'] = factor
                         best_state['cluster-penalty'] = cluster_penalty
                         best_state['train_ll'] = train_avg_ll
                         best_state['valid_ll'] = valid_avg_ll
@@ -260,7 +281,7 @@ with open(out_log_path, 'w') as out_log:
 
                     #
                     # writing to file a line for the grid
-                    stats = stats_format([g_factor,
+                    stats = stats_format([factor,
                                           cluster_penalty,
                                           min_inst_slice,
                                           alpha,

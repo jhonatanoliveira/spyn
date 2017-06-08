@@ -119,13 +119,60 @@ def g_test(feature_id_1,
     # print("(", feature_id_1, feature_id_2, ") G:", g_val, "dep_val:", dep_val)
     return g_val < dep_val
 
+@numba.jit
+def mi_test(feature_id_1,
+           feature_id_2,
+           instance_ids,
+           data,
+           feature_vals,
+           mi_factor):
+    if feature_id_1 > feature_id_2:
+        tmp = feature_id_1
+        feature_id_1 = feature_id_2
+        feature_id_2 = tmp
+
+    feature_size_1 = feature_vals[feature_id_1]
+    feature_size_2 = feature_vals[feature_id_2]
+
+    feature_tot_1 = numpy.zeros(feature_size_1, dtype=numpy.uint32)
+    feature_tot_2 = numpy.zeros(feature_size_2, dtype=numpy.uint32)
+    co_occ_matrix = numpy.zeros((feature_size_1, feature_size_2),
+                                dtype=numpy.uint32)
+
+    for i in instance_ids:
+        co_occ_matrix[data[i, feature_id_1], data[i, feature_id_2]] += 1
+
+    for i in range(feature_size_1):
+        for j in range(feature_size_2):
+            count = co_occ_matrix[i, j]
+            feature_tot_1[i] += count
+            feature_tot_2[j] += count
+
+    # feature_nonzero_1 = numpy.count_nonzero(feature_tot_1)
+    # feature_nonzero_2 = numpy.count_nonzero(feature_tot_2)
+
+    # dof = (feature_nonzero_1 - 1) * (feature_nonzero_2 - 1)
+
+    g_val = 0.0
+    for i, tot_1 in enumerate(feature_tot_1):
+        for j, tot_2 in enumerate(feature_tot_2):
+            count = co_occ_matrix[i, j]
+            if count != 0:
+                exp_count = tot_1 * tot_2
+                g_val += count * math.log(count / exp_count)
+
+    # dep_val = 2 * dof * g_factor + 0.001
+    return g_val < mi_factor
+
 
 @numba.jit
 def greedy_feature_split(data,
                          data_slice,
                          feature_vals,
                          g_factor,
-                         rand_gen):
+                         rand_gen,
+                         chop_method="gtest",
+                         mi_factor=0.05):
     """
     WRITEME
     """
@@ -160,13 +207,25 @@ def greedy_feature_split(data,
             # print('considering other features', other_feature_id)
             feature_id_2 = data_slice.feature_ids[other_feature_id]
             #
-            # apply a G-test
-            if not g_test(feature_id_1,
-                          feature_id_2,
-                          data_slice.instance_ids,
-                          data,
-                          feature_vals,
-                          g_factor):
+            # apply a G-test or Mutual Information test
+            is_independent = True
+            if chop_method == "gtest":
+                is_independent = g_test(feature_id_1,
+                                      feature_id_2,
+                                      data_slice.instance_ids,
+                                      data,
+                                      feature_vals,
+                                      g_factor)
+            elif chop_method == "mi":
+                is_independent = mi_test(feature_id_1,
+                                          feature_id_2,
+                                          data_slice.instance_ids,
+                                          data,
+                                          feature_vals,
+                                          mi_factor)
+            else:
+                raise NotImplementedError("Chop method not implemented.")
+            if not is_independent:
                 #
                 # print('found dependency!', (feature_id_1, feature_id_2))
 
@@ -351,10 +410,12 @@ class LearnSPN(object):
 
     def __init__(self,
                  g_factor=1.0,
+                 mi_factor=0.05,
                  min_instances_slice=100,
                  min_features_slice=0,
                  alpha=0.1,
                  row_cluster_method='GMM',
+                 column_chop_method='gtest',
                  cluster_penalty=2.0,
                  n_cluster_splits=2,
                  n_iters=100,
@@ -366,10 +427,12 @@ class LearnSPN(object):
         WRITEME
         """
         self._g_factor = g_factor
+        self._mi_factor = mi_factor
         self._min_instances_slice = min_instances_slice
         self._min_features_slice = min_features_slice
         self._alpha = alpha
         self._row_cluster_method = row_cluster_method
+        self._column_chop_method = column_chop_method
         self._cluster_penalty = cluster_penalty
         self._n_cluster_splits = n_cluster_splits
         self._n_iters = n_iters
@@ -383,6 +446,7 @@ class LearnSPN(object):
                      '\tmin feat:%d\n' +
                      '\talpha:%f\n\tcluster pen:%f\n\tn clusters:%d\n' +
                      '\tcluster method=%s\n\tn iters: %d\n' +
+                     '\tchop method=%s\n\tmi factor:%f\n' +
                      '\tn restarts: %d\n\tcltree leaves:%s\n' +
                      '\tsklearn args: %s\n',
                      self._g_factor,
@@ -393,6 +457,8 @@ class LearnSPN(object):
                      self._n_cluster_splits,
                      self._row_cluster_method,
                      self._n_iters,
+                     self._column_chop_method,
+                     self._mi_factor,
                      self._n_restarts,
                      self._cltree_leaves,
                      self._sklearn_args)
@@ -683,7 +749,9 @@ class LearnSPN(object):
                                              current_slice,
                                              feature_sizes,
                                              self._g_factor,
-                                             self._rand_gen)
+                                             self._rand_gen,
+                                             chop_method=self._column_chop_method,
+                                             mi_factor=self._mi_factor)
                     if len(other_features) > 0:
                         split_on_features = True
                 #
