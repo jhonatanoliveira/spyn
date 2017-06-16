@@ -1,20 +1,20 @@
-ipython -- bin/learnspn_exp.py nltcs -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/nltcs.log
-ipython -- bin/learnspn_exp.py msnbc -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/msnbc.log
-ipython -- bin/learnspn_exp.py kdd -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/kdd.log
-ipython -- bin/learnspn_exp.py plants -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/plants.log
-ipython -- bin/learnspn_exp.py baudio -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/baudio.log
-ipython -- bin/learnspn_exp.py jester -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/jester.log
-ipython -- bin/learnspn_exp.py bnetflix -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/bnetflix.log
-ipython -- bin/learnspn_exp.py accidents -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/accidents.log
-ipython -- bin/learnspn_exp.py tretail -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/tretail.log
-ipython -- bin/learnspn_exp.py pumsb_star -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/pumsb_star.log
-ipython -- bin/learnspn_exp.py dna -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/dna.log
-ipython -- bin/learnspn_exp.py msweb -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/msweb.log
-ipython -- bin/learnspn_exp.py book -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/book.log
-ipython -- bin/learnspn_exp.py tmovie -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/tmovie.log
-ipython -- bin/learnspn_exp.py cwebkb -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/cwebkb.log
-ipython -- bin/learnspn_exp.py cr52 -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/cr52.log
-ipython -- bin/learnspn_exp.py c20ng -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/c20ng.log
-ipython -- bin/learnspn_exp.py bbc -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/bbc.log
-ipython -- bin/learnspn_exp.py ad -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/ad.log
-ipython -- bin/learnspn_exp.py kosarek -k 2 -c KMEANS -g 5 10 15 20 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/kosarek.log
+ipython -- bin/learnspn_exp.py nltcs -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/nltcs.log
+ipython -- bin/learnspn_exp.py msnbc -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/msnbc.log
+ipython -- bin/learnspn_exp.py kdd -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/kdd.log
+ipython -- bin/learnspn_exp.py plants -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/plants.log
+ipython -- bin/learnspn_exp.py baudio -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/baudio.log
+ipython -- bin/learnspn_exp.py jester -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/jester.log
+ipython -- bin/learnspn_exp.py bnetflix -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/bnetflix.log
+ipython -- bin/learnspn_exp.py accidents -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/accidents.log
+ipython -- bin/learnspn_exp.py tretail -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/tretail.log
+ipython -- bin/learnspn_exp.py pumsb_star -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/pumsb_star.log
+ipython -- bin/learnspn_exp.py dna -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/dna.log
+ipython -- bin/learnspn_exp.py msweb -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/msweb.log
+ipython -- bin/learnspn_exp.py book -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/book.log
+ipython -- bin/learnspn_exp.py tmovie -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/tmovie.log
+ipython -- bin/learnspn_exp.py cwebkb -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/cwebkb.log
+ipython -- bin/learnspn_exp.py cr52 -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/cr52.log
+ipython -- bin/learnspn_exp.py c20ng -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/c20ng.log
+ipython -- bin/learnspn_exp.py bbc -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/bbc.log
+ipython -- bin/learnspn_exp.py ad -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/ad.log
+ipython -- bin/learnspn_exp.py kosarek -k 2 -c KMEANS -g 5 -m 50 -a 2.0 -v 1 -o exp/gtest-kmeans/ > exp/gtest-kmeans/kosarek.log
