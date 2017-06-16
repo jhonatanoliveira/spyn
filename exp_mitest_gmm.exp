@@ -1,20 +1,20 @@
-ipython -- bin/learnspn_exp.py nltcs -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/nltcs.log
-ipython -- bin/learnspn_exp.py msnbc -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/msnbc.log
-ipython -- bin/learnspn_exp.py kdd -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/kdd.log
-ipython -- bin/learnspn_exp.py plants -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/plants.log
-ipython -- bin/learnspn_exp.py baudio -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/baudio.log
-ipython -- bin/learnspn_exp.py jester -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/jester.log
-ipython -- bin/learnspn_exp.py bnetflix -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/bnetflix.log
-ipython -- bin/learnspn_exp.py accidents -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/accidents.log
-ipython -- bin/learnspn_exp.py tretail -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/tretail.log
-ipython -- bin/learnspn_exp.py pumsb_star -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/pumsb_star.log
-ipython -- bin/learnspn_exp.py dna -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/dna.log
-ipython -- bin/learnspn_exp.py msweb -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/msweb.log
-ipython -- bin/learnspn_exp.py book -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/book.log
-ipython -- bin/learnspn_exp.py tmovie -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/tmovie.log
-ipython -- bin/learnspn_exp.py cwebkb -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/cwebkb.log
-ipython -- bin/learnspn_exp.py cr52 -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/cr52.log
-ipython -- bin/learnspn_exp.py c20ng -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/c20ng.log
-ipython -- bin/learnspn_exp.py bbc -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/bbc.log
-ipython -- bin/learnspn_exp.py ad -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/ad.log
-ipython -- bin/learnspn_exp.py kosarek -k 2 -c GMM --mi-factor 0.01 0.05 0.1 0.2 -m 10 50 100 500 -a 0.1 0.2 0.5 1.0 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/kosarek.log
+ipython -- bin/learnspn_exp.py nltcs -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/nltcs.log
+ipython -- bin/learnspn_exp.py msnbc -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/msnbc.log
+ipython -- bin/learnspn_exp.py kdd -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/kdd.log
+ipython -- bin/learnspn_exp.py plants -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/plants.log
+ipython -- bin/learnspn_exp.py baudio -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/baudio.log
+ipython -- bin/learnspn_exp.py jester -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/jester.log
+ipython -- bin/learnspn_exp.py bnetflix -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/bnetflix.log
+ipython -- bin/learnspn_exp.py accidents -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/accidents.log
+ipython -- bin/learnspn_exp.py tretail -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/tretail.log
+ipython -- bin/learnspn_exp.py pumsb_star -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/pumsb_star.log
+ipython -- bin/learnspn_exp.py dna -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/dna.log
+ipython -- bin/learnspn_exp.py msweb -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/msweb.log
+ipython -- bin/learnspn_exp.py book -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/book.log
+ipython -- bin/learnspn_exp.py tmovie -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/tmovie.log
+ipython -- bin/learnspn_exp.py cwebkb -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/cwebkb.log
+ipython -- bin/learnspn_exp.py cr52 -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/cr52.log
+ipython -- bin/learnspn_exp.py c20ng -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/c20ng.log
+ipython -- bin/learnspn_exp.py bbc -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/bbc.log
+ipython -- bin/learnspn_exp.py ad -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/ad.log
+ipython -- bin/learnspn_exp.py kosarek -k 2 -c GMM --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/mitest-gmm/ > exp/mitest-gmm/kosarek.log
