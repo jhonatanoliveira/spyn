@@ -1,0 +1,6 @@
+parameters:
+Namespace(alpha=[2.0], chop_method='gtest', clt_leaves=False, cluster_method='KMEANS', cluster_penalty=[1.0], dataset=['msnbc'], g_factor=[5.0], mi_factor=[0.05], min_inst_slice=[50], n_iters=100, n_restarts=4, n_row_clusters=2, output='exp/gtest-kmeans/', seed=1337, sklearn_args=None, verbose=1)
+
+g-factor:	clu-pen:	min-ins:	alpha:	n_edges:	n_levels:	n_weights:	n_leaves:	train_ll	valid_ll:	test_ll
+5.00000	1.00000	50	2.00000	5357	31	1273	3461	-6.02998	-6.04126	-6.04294
+{'alpha': 2.0, 'min-inst-slice': 50, 'factor': 5.0, 'cluster-penalty': 1.0, 'train_ll': -6.029978448586543, 'valid_ll': -6.041257653204835, 'test_ll': -6.0429362345146655}

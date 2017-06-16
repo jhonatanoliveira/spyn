@@ -1,0 +1,6 @@
+parameters:
+Namespace(alpha=[2.0], chop_method='gtest', clt_leaves=False, cluster_method='KMEANS', cluster_penalty=[1.0], dataset=['tmovie'], g_factor=[5.0], mi_factor=[0.05], min_inst_slice=[50], n_iters=100, n_restarts=4, n_row_clusters=2, output='exp/gtest-kmeans/', seed=1337, sklearn_args=None, verbose=1)
+
+g-factor:	clu-pen:	min-ins:	alpha:	n_edges:	n_levels:	n_weights:	n_leaves:	train_ll	valid_ll:	test_ll
+5.00000	1.00000	50	2.00000	22851	27	2305	19395	-51.82389	-57.88551	-53.50104
+{'alpha': 2.0, 'min-inst-slice': 50, 'factor': 5.0, 'cluster-penalty': 1.0, 'train_ll': -51.823892796824765, 'valid_ll': -57.88550930590337, 'test_ll': -53.501038083580454}
