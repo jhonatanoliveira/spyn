@@ -1,0 +1,6 @@
+parameters:
+Namespace(alpha=[2.0], chop_method='gtest', clt_leaves=False, cluster_method='GMM', cluster_penalty=[1.0], dataset=['tretail'], g_factor=[1.0], mi_factor=[0.05], min_inst_slice=[50], n_iters=100, n_restarts=4, n_row_clusters=2, output='exp/mitest-gmm/', seed=1337, sklearn_args=None, verbose=1)
+
+g-factor:	clu-pen:	min-ins:	alpha:	n_edges:	n_levels:	n_weights:	n_leaves:	train_ll	valid_ll:	test_ll
+1.00000	1.00000	50	2.00000	18162	25	954	16746	-11.02201	-11.44357	-11.41694
+{'alpha': 2.0, 'min-inst-slice': 50, 'factor': 1.0, 'cluster-penalty': 1.0, 'train_ll': -11.022013942111762, 'valid_ll': -11.44356764075782, 'test_ll': -11.416936229514826}

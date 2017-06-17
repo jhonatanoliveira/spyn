@@ -1,0 +1,6 @@
+parameters:
+Namespace(alpha=[2.0], chop_method='gtest', clt_leaves=False, cluster_method='GMM', cluster_penalty=[1.0], dataset=['bnetflix'], g_factor=[1.0], mi_factor=[0.05], min_inst_slice=[50], n_iters=100, n_restarts=4, n_row_clusters=2, output='exp/mitest-gmm/', seed=1337, sklearn_args=None, verbose=1)
+
+g-factor:	clu-pen:	min-ins:	alpha:	n_edges:	n_levels:	n_weights:	n_leaves:	train_ll	valid_ll:	test_ll
+1.00000	1.00000	50	2.00000	40333	25	724	39328	-56.15342	-57.64992	-57.62646
+{'alpha': 2.0, 'min-inst-slice': 50, 'factor': 1.0, 'cluster-penalty': 1.0, 'train_ll': -56.15342438107541, 'valid_ll': -57.64992408887322, 'test_ll': -57.626463950148185}
