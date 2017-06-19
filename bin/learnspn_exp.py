@@ -157,6 +157,7 @@ date_string = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 out_path = args.output + dataset_name + '_' + date_string
 out_log_path = out_path + '/exp.log'
 test_lls_path = out_path + '/test.lls'
+train_lls_path = out_path + '/train.lls'
 
 #
 # creating dir if non-existant
@@ -166,6 +167,7 @@ if not os.path.exists(os.path.dirname(out_log_path)):
 best_valid_avg_ll = NEG_INF
 best_state = {}
 best_test_lls = None
+best_train_lls = None
 
 preamble = ("""g-factor:\tclu-pen:\tmin-ins:\talpha:\tn_edges:""" +
             """\tn_levels:\tn_weights:\tn_leaves:""" +
@@ -239,11 +241,13 @@ with open(out_log_path, 'w') as out_log:
 
                     #
                     # Compute LL on training set
+                    train_lls = numpy.zeros(train.shape[0])
                     logging.info('Evaluating on training set')
                     train_ll = 0.0
-                    for instance in train:
+                    for i, instance in enumerate(train):
                         (pred_ll, ) = spn.eval(instance)
                         train_ll += pred_ll
+                        train_lls[i] = pred_ll
                     train_avg_ll = train_ll / train.shape[0]
 
                     #
@@ -278,6 +282,7 @@ with open(out_log_path, 'w') as out_log:
                         best_state['valid_ll'] = valid_avg_ll
                         best_state['test_ll'] = test_avg_ll
                         best_test_lls = test_lls
+                        best_train_lls = train_lls
 
                     #
                     # writing to file a line for the grid
@@ -304,6 +309,7 @@ with open(out_log_path, 'w') as out_log:
     # saving the best test_lls
     assert_almost_equal(best_state['test_ll'], best_test_lls.mean())
     numpy.savetxt(test_lls_path, best_test_lls, delimiter='\n')
+    numpy.savetxt(train_lls_path, best_train_lls, delimiter='\n')
 
 
 logging.info('Grid search ended.')

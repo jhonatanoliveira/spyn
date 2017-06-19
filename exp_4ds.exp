@@ -1,0 +1,4 @@
+ipython -- bin/learnspn_exp.py msnbc -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/mitest-kmeans/ > exp/four/mitest-kmeans/msnbc.log
+ipython -- bin/learnspn_exp.py bnetflix -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/mitest-kmeans/ > exp/four/mitest-kmeans/bnetflix.log
+ipython -- bin/learnspn_exp.py msweb -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/mitest-kmeans/ > exp/four/mitest-kmeans/msweb.log
+ipython -- bin/learnspn_exp.py bbc -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/mitest-kmeans/ > exp/four/mitest-kmeans/bbc.log
