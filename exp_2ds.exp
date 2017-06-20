@@ -1,0 +1,2 @@
+ipython -- bin/learnspn_exp.py kdd -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/gtest-gmm/ > exp/four/gtest-gmm/kdd.log
+ipython -- bin/learnspn_exp.py msweb -k 2 -c KMEANS --mi-factor 0.05 -m 50 -a 2.0 -v 1 -o exp/four/gtest-gmm/ > exp/four/gtest-gmm/msweb.log
