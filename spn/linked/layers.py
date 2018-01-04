@@ -3,6 +3,7 @@ from spn.linked.nodes import ProductNode
 from spn.linked.nodes import CategoricalIndicatorNode
 from spn.linked.nodes import CategoricalSmoothedNode
 from spn.linked.nodes import CLTreeNode
+from spn.linked.nodes import GaussianNode
 
 from math import exp
 
@@ -449,3 +450,38 @@ class CategoricalSmoothedLayer(CategoricalInputLayer):
         """
         for node in self._nodes:
             node.smooth_probs(alpha)
+
+
+
+
+class GaussianLayer(CategoricalInputLayer):
+
+    def smooth_probs(self, alpha):
+        """
+        TODO
+        """
+        pass
+
+
+    # def eval(self, input):
+    #     """
+    #     WRITEME
+    #     """
+    #     ### DEBUG
+    #     print(">>> Input data")
+    #     print(input)
+    #     print(input.shape)
+    #     raise Exception("*** Here")
+    #     ###---DEBUG
+    #     for node in self._nodes:
+    #         #
+    #         # I am not using polymorphism at all...
+    #         if isinstance(node, GaussianNode):
+    #             node.eval(input)
+    #         else:
+    #             # the other node type is assumed to be CategoricalS
+    #             # extract the observed var value
+    #             obs = input[node.var]
+    #             # and eval the node
+    #             node.eval(obs)
+

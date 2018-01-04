@@ -5,6 +5,7 @@ from spn.linked.layers import ProductLayer as ProductLayerLinked
 from spn.linked.layers import CategoricalInputLayer
 from spn.linked.layers import CategoricalSmoothedLayer \
     as CategoricalSmoothedLayerLinked
+from spn.linked.layers import GaussianLayer as GaussianLayerLinked
 from spn.linked.layers import CategoricalIndicatorLayer \
     as CategoricalIndicatorLayerLinked
 from spn.linked.layers import CategoricalCLInputLayer \
@@ -15,6 +16,7 @@ from spn.linked.nodes import ProductNode
 from spn.linked.nodes import CategoricalSmoothedNode
 from spn.linked.nodes import CategoricalIndicatorNode
 from spn.linked.nodes import CLTreeNode
+from spn.linked.nodes import GaussianNode
 
 from spn.utils import pairwise
 
@@ -586,6 +588,8 @@ class SpnFactory(object):
                 input_layer = CategoricalSmoothedLayerLinked(input_nodes)
             elif isinstance(input_nodes[0], CategoricalIndicatorNode):
                 input_layer = CategoricalIndicatorLayerLinked(input_nodes)
+            elif isinstance(input_nodes[0], GaussianNode):
+                input_layer = GaussianLayerLinked(input_nodes)
 
         spn = SpnLinked(input_layer=input_layer,
                         layers=layers[::-1])

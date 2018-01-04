@@ -1,0 +1,1 @@
+ipython -- bin/learnspn_exp.py dummy -k 2 -c GMM -g 5 -m 50 -a 1.0 -v 1 -o exp/tests/

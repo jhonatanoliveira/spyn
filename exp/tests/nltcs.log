@@ -1,0 +1,24 @@
+]0;IPython: projects/spyn[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/Users/jhonatanoliveira/git/projects/spyn/bin/learnspn_exp.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m    215[0m                 [0;31m# build an spn on the training set[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    216[0m                 spn = learner.fit_structure(data=train,
+[0;32m--> 217[0;31m                                             feature_sizes=features)
+[0m[1;32m    218[0m                 [0;31m# spn = learner.fit_structure_bagging(data=train,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    219[0m                 [0;31m#                                     feature_sizes=features,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Users/jhonatanoliveira/git/projects/spyn/algo/learnspn.py[0m in [0;36mfit_structure[0;34m(self, data, feature_sizes)[0m
+[1;32m    668[0m                     GaussianNode(vars=feature_id,
+[1;32m    669[0m                                 [0mvar_values[0m[0;34m=[0m[0mfeature_size[0m[0;34m,[0m[0;34m[0m[0m
+[0;32m--> 670[0;31m                                 data=current_slice_data)
+[0m[1;32m    671[0m [0;34m[0m[0m
+[1;32m    672[0m                 [0;31m# storing links[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Users/jhonatanoliveira/git/projects/spyn/spn/linked/nodes.py[0m in [0;36m__init__[0;34m(self, vars, var_values, data)[0m
+[1;32m    868[0m         [0mdata[0m [0;34m=[0m [0mthe[0m [0mdata[0m [0mslice[0m [0;34m([0m[0;36m2[0m[0md[0m [0mndarray[0m[0;34m)[0m [0mupon[0m [0mwhich[0m [0mto[0m [0mmodel[0m [0mthe[0m [0mGaussian[0m[0;34m[0m[0m
+[1;32m    869[0m         """
+[0;32m--> 870[0;31m         [0mNode[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mfrozenset[0m[0;34m([0m[0mvars[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    871[0m [0;34m[0m[0m
+[1;32m    872[0m         [0mself[0m[0;34m.[0m[0mvars[0m [0;34m=[0m [0mnumpy[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mvars[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: 'numpy.uint32' object is not iterable

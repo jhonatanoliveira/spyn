@@ -5,6 +5,8 @@ from spn import IS_LOG_ZERO
 
 import numpy
 
+import scipy.stats
+
 from math import log
 from math import exp
 
@@ -20,6 +22,7 @@ PROD_NODE_SYM = '*'
 INDICATOR_NODE_SYM = 'i'
 DISCRETE_VAR_NODE_SYM = 'd'
 CHOW_LIU_TREE_NODE_SYM = 'c'
+GAUSSUAN_NODE_SYM = 'g'
 
 
 class Node(object):
@@ -807,6 +810,10 @@ class CategoricalSmoothedNode(Node):
         # else:
         #     self.log_val = self._var_probs[obs]
         self.log_val = eval_numba(obs, self._var_probs)
+        ### DEBUG
+        # print(">>> Eval:")
+        # print(self.log_val)
+        ###---DEBUG
 
     def mpe_eval(self, obs):
         """
@@ -846,3 +853,83 @@ class CategoricalSmoothedNode(Node):
         WRITEME
         """
         return len(self._var_freqs)
+
+
+
+
+class GaussianNode(Node):
+
+    """
+    An input node representing a Gaussian Distribution over a set of r.v.
+    """
+
+    def __init__(self,
+                 var,
+                 var_values,
+                 data):
+        # print(">>>vars")
+        # print(vars)
+        # print(">>>var_values")
+        # print(var_values)
+        # print(">> data")
+        # print(data)
+        # raise Exception("hereeerere>>>")
+        """
+        vars = the sequence of feature ids
+        var_values = the sequence of feature values
+        data = the data slice (2d ndarray) upon which to model the Gaussian
+        """
+        Node.__init__(self, frozenset({var}))
+
+        self.var = var
+        self.var_val = var_values
+
+        #
+        # assuming data is never None
+        self._mean = numpy.mean(data, axis=0)
+        self._cov = numpy.cov(data, rowvar=False)
+        #TODO: deal with this cov zero case
+        if self._cov == 0:
+            self._cov += 1e-4
+
+    def eval(self, obs):
+        """
+        Dispatching inference to the Gaussian
+        """
+        #
+        # TODO: do something for the derivatives
+        self.log_der = LOG_ZERO
+
+        ### DEBUG
+        # print(">>> OBS")
+        # print(obs)
+        # print(self._mean)
+        # print(self._cov)
+        # print()
+        # raise Exception("---> STOP")
+        ###---DEBUG
+
+        # self.log_val = self._cltree.eval(obs)
+        self.log_val = scipy.stats.norm.logpdf(obs,loc=self._mean, scale=self._cov)[0]
+        ### DEBUG
+        # print(">>> Eval:")
+        # print(self.log_val)
+        ###---DEBUG
+
+    def mpe_eval(self, obs):
+        """
+        WRITEME
+        """
+        raise NotImplementedError('MPE inference not yet implemented for Gaussian Node')
+
+    def n_children(self):
+        return 0
+
+    def node_type_str(self):
+        return GAUSSUAN_NODE_SYM
+
+    def node_short_str(self):
+        return "Gaussian"
+
+    def __repr__(self):
+        return "Gauss"

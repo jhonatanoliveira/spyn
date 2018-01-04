@@ -22,6 +22,7 @@ from spn.linked.nodes import CategoricalSmoothedNode
 from spn.linked.nodes import SumNode
 from spn.linked.nodes import ProductNode
 from spn.linked.nodes import CLTreeNode
+from spn.linked.nodes import GaussianNode
 
 from spn.factory import SpnFactory
 
@@ -33,7 +34,6 @@ import logging
 
 import sklearn.mixture
 import sklearn.cluster
-
 from algo.dataslice import DataSlice
 
 import dataset
@@ -300,10 +300,10 @@ def cluster_rows(data,
             if 'covariance_type' in sklearn_args else 'diag'
         #
         # creating the cluster from sklearn
-        gmm_c = sklearn.mixture.GMM(n_components=n_clusters,
+        gmm_c = sklearn.mixture.GaussianMixture(n_components=n_clusters,
                                     covariance_type=cov_type,
                                     random_state=rand_gen,
-                                    n_iter=n_iters,
+                                    max_iter=n_iters,
                                     n_init=n_restarts)
 
         #
@@ -656,12 +656,25 @@ class LearnSPN(object):
                 current_slice_data = slice_data_rows[:, current_features]
 
                 # create the node
+                # leaf_node = \
+                #     CategoricalSmoothedNode(var=feature_id,
+                #                             var_values=feature_size,
+                #                             data=current_slice_data,
+                #                             instances=current_instances,
+                #                             alpha=self._alpha)
+
+
                 leaf_node = \
-                    CategoricalSmoothedNode(var=feature_id,
-                                            var_values=feature_size,
-                                            data=current_slice_data,
-                                            instances=current_instances,
-                                            alpha=self._alpha)
+                    GaussianNode(var=feature_id,
+                                var_values=feature_size,
+                                data=current_slice_data)
+
+                ### DEBUG
+                # print(">>> g d")
+                # print(leaf_node)
+                # raise Exception("ooopsss")
+                ###---DEBUG
+
                 # storing links
                 # input_nodes.append(leaf_node)
                 leaf_node.id = current_id

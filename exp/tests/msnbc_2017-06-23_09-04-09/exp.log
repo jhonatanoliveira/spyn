@@ -1,0 +1,6 @@
+parameters:
+Namespace(alpha=[1.0], chop_method='gtest', clt_leaves=False, cluster_method='GMM', cluster_penalty=[1.0], dataset=['msnbc'], g_factor=[5.0], mi_factor=[0.05], min_inst_slice=[50], n_iters=100, n_restarts=4, n_row_clusters=2, output='exp/tests/', seed=1337, sklearn_args=None, verbose=1)
+
+g-factor:	clu-pen:	min-ins:	alpha:	n_edges:	n_levels:	n_weights:	n_leaves:	train_ll	valid_ll:	test_ll
+5.00000	1.00000	50	1.00000	3978	25	996	2510	-6.02956	-6.04036	-6.04168
+{'alpha': 1.0, 'min-inst-slice': 50, 'factor': 5.0, 'cluster-penalty': 1.0, 'train_ll': -6.029562740079345, 'valid_ll': -6.040361795775262, 'test_ll': -6.041681879043247}
